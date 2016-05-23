@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* 최근게시물 스킨 (latest) */
+.lt_gal{}
+.lt_gal a{text-decoration:none;}
+.lt_gal ul:after {display:block;visibility:hidden;clear:both;content:""}
+.lt_gal li{position:relative;float:left;width:50%;}
+.lt_gal img{width:100%;height:auto;}
+.lt_gal .lt_tit{position:absolute;bottom:0;left:0;color:#fff;padding:10px 0; background:rgba(0,0,0,0.5);display:block;width:100%;font-size:1.167em}
+.lt_gal .lt_tit span{margin:0 10px;display:block;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;}
+.lt_gal .no_img{display:table-cell; vertical-align: middle;font-weight: bold;font-size: 1.3em;color: #bbb;text-transform: uppercase;text-align:center;background: #eee}
+.lt_gal .lt_image{text-align:center;display:block;}
+.lt_gal .lt_image span{background:#fff;display:block}
+.lt_gal .no_lt{text-align:center;width:100%;padding:30px 0}
+.lt_gal li.no_bd{width:100%;background:#fff; width:100%;text-align:center;padding:30px 0}
+@media all and (max-width:375px){
+
+    .lt_gal li{float:left;width:100%;}
+
+}

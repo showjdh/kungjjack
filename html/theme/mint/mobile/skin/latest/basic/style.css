@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* 새글 스킨 (latest) */
+.lt{background:#fff;border-top:2px solid #00d7c1;padding:0 20px}
+.lt h2 a{color:#00d7c1;font-size:1.33em;padding:10px 0;display:block}
+.lt ul li{padding:0 34px 0 13px;background:url(img/bullet.gif) no-repeat 0 50%;font-size:1.167em;color:#222;line-height:2.3em;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;position:relative;border-bottom:1px dotted #e7e7e7}
+.cnt_cmt{color:#00d7c1;}
