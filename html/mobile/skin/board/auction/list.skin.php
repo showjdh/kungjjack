@@ -67,16 +67,16 @@ for ($i=0; $i<count($list); $i++) {
     switch ($info[status]) {
         case 0: // 진행중
             if (strtotime($info[start_datetime]) > G5_SERVER_TIME) {
-                $status = "시작전입니다.";
+                $status = "모집전입니다.";
                 $class = "act_status_begin";
                 break;
             }
         case 1: // 진행중
-            $status = "입찰가능 <span style='font-size:11px;'>(".number_format($info[tender_count])."회 참여)</span>";
+            $status = "참여가능 <span style='font-size:11px;'>(".number_format($info[tender_count])."명 참여)</span>";
             $class = "act_status_ok";
             break;
         case 2: // 낙찰
-            $status = "경매종료";
+            $status = "모집종료";
             if ($info[mb_id]) {
                 $mb = get_member($info[mb_id]);
                 $status .= " ($mb[mb_nick])";
@@ -106,7 +106,7 @@ if($thumb['src']) {
                     $a1 = "<a href='{$list[$i][link_href][1]}' target=_blank>";
                     $a2 = "</a>";
                 }
-                echo "{$a1}<span class='act_subject_text'>제공 : {$info[company]}</span>{$a2}";
+                echo "{$a1}<span class='act_subject_text'>제공 : {$info[product]}</span>{$a2}";
                 ?>
         </h6> 
         <div style="float:left; width:120px;">
@@ -114,11 +114,12 @@ if($thumb['src']) {
         </div>
         <div style="float:left;">
             <ul class="tender_info_ul">
-                <li><a href="<?=$list[$i][href]?>" style="text-decoration:none;"><span style="cursor:pointer;">상품명 : <?=cut_str($info[product],15)?><? if ($list[$i][comment_cnt]) echo " <span style='font-family:Tahoma;font-size:10px;color:#EE5A00; font-weight:normal;'>{$list[$i][comment_cnt]}</span>"; ?></span></a></li>
-                <li>입찰 번호 : <?=number_format($info[tender_lower])?>~<?=number_format($info[tender_higher])?></li>
-                <li>시작일 : <?=date("Y/m/d [H:i]",strtotime($info[start_datetime]))?></li>
-                <li>종료일 : <?=date("Y/m/d [H:i]",strtotime($info[end_datetime]))?></li>
-                <li>경매상태 : <span class="<?=$class?>"><?=$status?></span></li>
+                <li><a href="<?=$list[$i][href]?>" style="text-decoration:none;"><span style="cursor:pointer;">장소 : <?=cut_str($info[company],15)?><? if ($list[$i][comment_cnt]) echo " <span style='font-family:Tahoma;font-size:10px;color:#EE5A00; font-weight:normal;'>{$list[$i][comment_cnt]}</span>"; ?></span></a></li>
+               <!--<li>입찰 번호 : <?=number_format($info[tender_lower])?>~<?=number_format($info[tender_higher])?></li>-->
+                <li>여행날짜 : <?=date("Y/m/d [H:i]",strtotime($info[travel_start_time]))?>~<?=date("Y/m/d [H:i]",strtotime($info[travel_end_time]))?></li>
+                <li>모집기간 : <?=date("Y/m/d [H:i]",strtotime($info[start_datetime]))?>~<?=date("Y/m/d [H:i]",strtotime($info[end_datetime]))?></li>
+                
+                <li>모집상태 : <span class="<?=$class?>"><?=$status?></span></li>
             </ul>
         </div>
     </div>

@@ -104,6 +104,8 @@ function get_info_auction($wr_id, $row=null) {
     $res[status] = $row[wr_8];
     $res[td_id] = $row[wr_9];
     $res[mb_id] = $row[wr_10];
+    $res[travel_start_time] = $row[wr_9];
+    $res[travel_end_time] = $row[wr_10];
 
     // 경매가 종료되지 않았다면
     if (G5_TIME_YMDHIS < $res[end_datetime]) {
