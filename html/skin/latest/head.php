@@ -18,6 +18,7 @@ include_once(G5_LIB_PATH.'/poll.lib.php');
 include_once(G5_LIB_PATH.'/visit.lib.php');
 include_once(G5_LIB_PATH.'/connect.lib.php');
 include_once(G5_LIB_PATH.'/popular.lib.php');
+include_once(G5_LIB_PATH.'/groupmenu.lib.php');
 ?>
 
 <!-- 상단 시작 { -->
@@ -162,4 +163,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
     </div>
     <div id="container">
         <?php if ((!$bo_table || $w == 's' ) && !defined("_INDEX_")) { ?><div id="container_title"><?php echo $g5['title'] ?></div><?php } ?>
+      <?php echo outlogin('basic'); // 외부 로그인  ?>
+      <?php echo groupmenu('sir', 24); // 그룹메뉴  ?>
+      <?php echo poll('basic'); // 설문조사  ?>
     

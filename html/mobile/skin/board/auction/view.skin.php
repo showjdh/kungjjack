@@ -122,22 +122,24 @@ if (file_exists($file_path)) {
         <div id="view_right_title">
             <div style="margin-left:10px; margin-top:5px; font-size:15px;">
             <?php if ($view[link][1]) { ?><a href="<?php echo $view[link_href][1]?>" target=_blank style="text-decoration:none;"><?php } ?>
-                제공 : <?php echo $info[company]?> 
+                제목 : <?php echo $info[company]?> 
             <?php if ($view[link][1]) { ?></a><?php } ?>
             </div>
             <div style="margin-left:10px; font-size:12px;">
                 <?php if ($view[link][2]) { ?><a href="<?php echo $view[link_href][2]?>" target=_blank style="text-decoration:none;"><?php } ?>
-                제품명 : <?php echo $info[product]; ?>
+                장소 : <?php echo $info[product]; ?>
                 <?php if ($view[link][2]) { ?></a><?php } ?>
             </div>
         </div>
         <table border=0 cellpadding=0 cellspacing=0 width=100% style="margin:18px 0 0 5px;">
+            <!--
             <tr>
                 <td height=20 style="padding-left:5px;" width=100> 경매시작일시 </td>
                 <td style="color:#898989; font-weight:bold;"> <span class=colon>:</span> <?php echo date("Y년 m월 d일 H시 i분", strtotime($info[start_datetime]))?> </td>
             </tr>
+            -->
             <tr>
-                <td height=20 style="padding-left:5px;"> 경매종료일시 </td>
+                <td height=20 style="padding-left:5px;"> 모집마감 </td>
                 <td style="color:#898989; font-weight:bold;"> <span class=colon>:</span> <?php echo date("Y년 m월 d일 H시 i분", strtotime($info[end_datetime]))?> </td>
             </tr>
             <?php if ($info[status] == 1) { ?>
