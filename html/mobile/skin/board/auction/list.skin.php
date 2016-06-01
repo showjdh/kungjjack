@@ -106,7 +106,7 @@ if($thumb['src']) {
                     $a1 = "<a href='{$list[$i][link_href][1]}' target=_blank>";
                     $a2 = "</a>";
                 }
-                echo "{$a1}<span class='act_subject_text'>제공 : {$info[product]}</span>{$a2}";
+                echo "{$a1}<span class='act_subject_text'>제목 : {$info[product]}</span>{$a2}";
                 ?>
         </h6> 
         <div style="float:left; width:120px;">
