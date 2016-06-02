@@ -1,5 +1,5 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
-$bo_subject='';
+$bo_subject='Notice';
 $list=array (
 )?>

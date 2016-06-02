@@ -174,6 +174,9 @@ var char_max = parseInt(<?=$write_max?>); // 최대
         <input type="text" name="wr_2" value="<?php echo $write["wr_2"]; ?>" id="date_wr_2" required class="frm_input" size="11" readonly="readonly">
 
         <br>
+        <input type="text" name="wr_9" value="<?php echo $write["wr_9"]; ?>" id="date_wr_1" required class="frm_input" size="11" readonly="readonly">
+        ~
+        <input type="text" name="wr_10" value="<?php echo $write["wr_10"]; ?>" id="date_wr_10" required class="frm_input" size="11" readonly="readonly">
         
         <input type=button value="오늘자정" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+60*60*24)?>';">
         <input type=button value="지금" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d H:i:s", G5_SERVER_TIME)?>';">
@@ -195,9 +198,9 @@ var char_max = parseInt(<?=$write_max?>); // 최대
         <input type=text size=20 name=wr_2 id=wr_2 value="<?=$write[wr_2]?>" itemname="경매 종료일시" required readonly>
         <br>
         <? if ($is_admin) { ?>
-        <input type="text" name="wr_9" value="<?php echo $write["wr_9"]; ?>" id="date_wr_1" required class="frm_input" size="11" readonly="readonly">
+        <input type="text" name="wr_9" value="<?php echo $write["wr_9"]; ?>" id="date_wr_9" required class="frm_input" size="11" readonly="readonly">
         ~
-        <input type="text" name="wr_10" value="<?php echo $write["wr_10"]; ?>" id="date_wr_2" required class="frm_input" size="11" readonly="readonly">
+        <input type="text" name="wr_10" value="<?php echo $write["wr_10"]; ?>" id="date_wr_10" required class="frm_input" size="11" readonly="readonly">
         <!--<input type=button value="지금" onclick="end_date(0)">
         <input type=button value="1일" onclick="end_date(1)">
         <input type=button value="3일" onclick="end_date(3)">
