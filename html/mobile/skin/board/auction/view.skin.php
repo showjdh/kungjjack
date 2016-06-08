@@ -142,6 +142,12 @@ if (file_exists($file_path)) {
                 <td height=20 style="padding-left:5px;"> 모집마감 </td>
                 <td style="color:#898989; font-weight:bold;"> <span class=colon>:</span> <?php echo date("Y년 m월 d일 H시 i분", strtotime($info[end_datetime]))?> </td>
             </tr>
+            <tr>
+                <td height=20 style="padding-left:5px;"> 여행기간 </td>
+                <td style="color:#898989; font-weight:bold;"> <span class=colon>:</span> <?php echo date("Y/m/d", strtotime($info[travel_start_time]))?>~<?php echo date("Y/m/d", strtotime($info[travel_end_time]))?> </td>
+            </tr>
+
+            
             <?php if ($info[status] == 1) { ?>
             <tr>
                 <td height=20 style="padding-left:5px;"> 남은시간 </td>
@@ -151,23 +157,24 @@ if (file_exists($file_path)) {
             <tr><td height=5 bgcolor="#ffffff" colspan=2></td></tr>
             <tr><td height=1 bgcolor="#dddddd" colspan=2></td></tr>
             <tr><td height=5 bgcolor="#ffffff" colspan=2></td></tr>
-            <tr>
+            <!--<tr>
                 <td height=20 style="padding-left:5px;"> 입찰 번호 </td>
                 <td> 
                     <span class=colon>:</span> 
                     <span style="color:#FF2E6E; font-weight:bold;"><?php echo number_format($info[tender_lower])?> ~ <?php echo number_format($info[tender_higher])?></span>
                 </td>
-            </tr>
+            </tr>-->
             <tr>
-                <td height=20 style="padding-left:5px;"> 입찰 횟수 </td>
+                <td height=20 style="padding-left:5px;"> 참여자수 </td>
                 <td>
                     <span class=colon>:</span> 
                     <span style="color:#3A72A9; font-weight:bold;">
-                        <?php if ($is_admin) echo "$tender_mb_id_count 명, "; ?>
-                        <?php echo number_format($info[tender_count])?> 회 참여
+                        <?php if ($is_admin) echo "$tender_mb_id_count 명 "; ?>
+                        <!--<?php echo number_format($info[tender_count])?> 회 참여-->
                     </span>
                 </td>
             </tr>
+            <!--
             <tr>
                 <td height=20 style="padding-left:5px;"> 배송비 </td>
                 <td>
@@ -177,6 +184,7 @@ if (file_exists($file_path)) {
                     </span>
                 </td>
             </tr>
+            -->
             <tr>
                 <td height=20 style="padding-left:5px;"> 올린이 </td>
                 <td>
@@ -187,16 +195,16 @@ if (file_exists($file_path)) {
                 </td>
             </tr>
             <tr>
-                <td height=20 style="padding-left:5px;"> 경매상태 </td>
+                <td height=20 style="padding-left:5px;"> 모집상태 </td>
                 <td> 
                     <?php if ($info[status] == 3) { ?>
-                    <span class=colon>:</span> <span style="color:#888; font-weight:bold;">경매가 유찰되었습니다.</span>
+                    <span class=colon>:</span> <span style="color:#888; font-weight:bold;">모집이 마감되었습니다.</span>
                     <?php } elseif ($info[status] == 2) { ?>
-                    <span class=colon>:</span> <span style="color:#950000; font-weight:bold;">경매가 종료되었습니다.</span>
+                    <span class=colon>:</span> <span style="color:#950000; font-weight:bold;">모집이 마감되었습니다.</span>
                     <?php } elseif ($info[status] == 1) { ?>
-                    <span class=colon>:</span> <span style="color:#009520; font-weight:bold;">입찰가능</span>
+                    <span class=colon>:</span> <span style="color:#009520; font-weight:bold;">참여가능</span>
                     <?php } else { ?>
-                    <span class=colon>:</span> <span style="color:#888; font-weight:bold;">시작전입니다.</span>
+                    <span class=colon>:</span> <span style="color:#888; font-weight:bold;">모집전입니다.</span>
                     <?php } ?>
                 </td>
             </tr>
@@ -204,11 +212,12 @@ if (file_exists($file_path)) {
             <tr><td height=1 bgcolor="#dddddd" colspan=2></td></tr>
             <tr><td height=5 bgcolor="#ffffff" colspan=2></td></tr>
         </table>
+        <!--
         <div style="color:#000; line-height:20px; font-family:dotum;">
             <div style="margin-left:5px;">* 입찰 참여 시 <b>참여포인트 <?php echo number_format($info[inter_point])?>점</b>이 차감됩니다.</div>
             <div style="margin-left:5px;">* 본 상품은 <b>한 회원이 하루 최대 <?php echo $info[day_limit]?>번</b> 입찰 가능합니다.</div>
         </div>
-
+        -->
     </div>
 
     <!-- 입찰 부분 시작 -->
@@ -216,7 +225,7 @@ if (file_exists($file_path)) {
 
     <?php if ($info[status] == '0') { ?>
         <div style="float:left; margin-left:100px; padding-top:20px; font-weight:bold;">
-            경매는 <u><?php echo date("Y년 m월 d일 H시 i분", strtotime($info[start_datetime]))?></u> 에 시작됩니다.
+            모집은 <u><?php echo date("Y년 m월 d일 H시 i분", strtotime($info[start_datetime]))?></u> 에 시작됩니다.
         </div>
         <?php if ($view[link][2]) { ?><div style="float:left; margin:8px 0 0 20px;"><a href="<?php echo $view[link_href][2]?>" target=_blank><img src="<?php echo $board_skin_url?>/img/btn_buy.gif"></a></div><?php } ?>
 
@@ -249,9 +258,10 @@ if (file_exists($file_path)) {
             번호를 입찰하겠습니다.
         </form>
         <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender.gif" onclick="tender_send()"></div>
+        <!--
         <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_section.gif" id="btn_tender_section"></div>
         <?php if ($info[tender_count]) { ?><div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_list.gif" onclick="tender_list()"></div><?php } ?>
-        <?php if ($view[link][2]) { ?><div style="float:left; margin:8px 0 0 10px;"><a href="<?php echo $view[link_href][2]?>" target=_blank><img src="<?php echo $board_skin_url?>/img/btn_buy.gif"></a></div><?php } ?>
+        <?php if ($view[link][2]) { ?><div style="float:left; margin:8px 0 0 10px;"><a href="<?php echo $view[link_href][2]?>" target=_blank><img src="<?php echo $board_skin_url?>/img/btn_buy.gif"></a></div><?php } ?>-->
 
 
 <link rel="stylesheet" href="<?php echo $board_skin_url?>/jquery-ui.css" type="text/css" media="all" />
@@ -346,7 +356,7 @@ function fsection_submit(f) {
             <label for="amount">입찰 번호 구간:</label>
             <input type="text" id="point_min" name="point_min" size="5">번 -
             <input type="text" id="point_max" name="point_max" size="5">번
-            <!-- <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" readonly /> -->
+             <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" readonly /> 
         </p>
 
         <div id="slider-range"></div>
@@ -394,10 +404,10 @@ $tender_count = $row2[cnt];
     </div>
 <?php } ?>
 
-    <div style="margin-top:5px; padding:10px; color:#336699; border:1px solid #ddd;">
+    <!--<div style="margin-top:5px; padding:10px; color:#336699; border:1px solid #ddd;">
     코멘트 남기지 않으시면 낙찰이 취소될 수 있습니다. ^_____^<br>
     낙찰시 해외배송은 하지 않으므로 상품을 배송 받을 한국 주소를 알려주시기 바랍니다.
-    </div>
+    </div>-->
 
     <div id=writeContents style="margin:20px 0 20px 0;">
         <?php echo $view[content]?>

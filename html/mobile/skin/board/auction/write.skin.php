@@ -1,30 +1,32 @@
+
 <?
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 include_once("$board_skin_path/auction.lib.php");
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
+
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 
 if ($w == '') {
-    $write[wr_1] = date("Y-m-d:H:i:s", G5_SERVER_TIME);
+    $write[wr_1] = date("Y-m-d", G5_SERVER_TIME);
     //$write[wr_2] = date("Y-m-d H:i:s", $write[wr_1] + 86400 * 7);
     //$write[wr_2] = date("Y-m-d 12:30:00", strtotime($write[wr_1]) + 86400 * 7);
-    $write[wr_2] = date("Y-m-d:H:i:s", G5_SERVER_TIME + 86400 * 7);
+    $write[wr_2] = date("Y-m-d", G5_SERVER_TIME + 86400 * 7);
 
-    $write[wr_3]=0;
-    $write[wr_4]=0;
-    $write[wr_5]=0;
-    $write[wr_6]=1;
-    //$write[wr_3] = $board[bo_1]; // 참여 포인트 기본값
-    //$write[wr_4] = $board[bo_2]; // 입찰 최소 포인트 기본값
-    //$write[wr_5] = $board[bo_3]; // 입찰 최대 포인트 기본값
-    //$write[wr_6] = $board[bo_4]; // 하루 참여 횟수 기본값
+    //$write[wr_3]=0;
+    //$write[wr_4]=0;
+    //$write[wr_5]=0;
+    //$write[wr_6]=100;
+    $write[wr_3] = $board[bo_1]; // 참여 포인트 기본값
+    $write[wr_4] = $board[bo_2]; // 입찰 최소 포인트 기본값
+    $write[wr_5] = $board[bo_3]; // 입찰 최대 포인트 기본값
+    $write[wr_6] = $board[bo_4]; // 하루 참여 횟수 기본값
     $write[wr_7] = "0";
     $write[wr_8] = "0";
-    $write[wr_9] = date("Y-m-d:H:i:s", G5_SERVER_TIME);
-    $write[wr_10] = date("Y-m-d:H:i:s", G5_SERVER_TIME + 86400 * 7);
+    //$write[wr_9] = date("Y-m-d", G5_SERVER_TIME);
+    //$write[wr_10] = date("Y-m-d", G5_SERVER_TIME + 86400 * 7);
     $write[ca_name] = "선불";
 
     $possible_point = 100;
@@ -115,9 +117,10 @@ var char_max = parseInt(<?=$write_max?>); // 최대
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
 <? } ?>
 
+<!--
 <? if ($is_notice || $is_html || $is_secret || $is_mail) { ?>
 <tr>
-    <!--<td class=write_head>· 옵션</td>-->
+    <td class=write_head>· 옵션</td>
     <td class=write_main><? if ($is_notice) { ?><input type=checkbox name=notice value="1" <?=$notice_checked?>>공지&nbsp;<? } ?>
         <? if ($is_html) { ?>
             <? if ($is_dhtml_editor) { ?>
@@ -135,25 +138,27 @@ var char_max = parseInt(<?=$write_max?>); // 최대
         <? } ?>
         <? if ($is_mail) { ?><input type=checkbox value="mail" name="mail" <?=$recv_email_checked?>>답변메일받기&nbsp;<? } ?></td></tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
+
 <? } ?>
+-->
 
 <tr>
     <td class=write_head style="height:60px;">· 장소</td>
     <td class=write_main>
         <input class="frm_input required" maxlength="20" name="subj1" id="subj1" itemname="업체명" required value='<?=$subj1?>'>
-        <div class=write_size style="line-height:25px;">제공업체명을 입력하세요. 없다면 회원의 별명등을 입력하세요. 예) 애플</div>
+        <!--<div class=write_size style="line-height:25px;">제공업체명을 입력하세요. 없다면 회원의 별명등을 입력하세요. 예) 애플</div>-->
     </td>
 </tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
 <tr>
     <td class=write_head style="height:60px;">· 제목</td>
     <td class=write_main>
-        <div class='write_size' style="line-height:20px;"><span class='emphasis'>주의사항) 상품등록시 아래 사항을 지켜주십시오.</span></div>
-        <div class='write_size' style="line-height:20px;"><span class='emphasis'>* 배송이 되는 실물상품만 등록이 가능합니다. 예) 박스포장 없는 소프트웨어 불가</span></div>
-        <div class='write_size' style="line-height:20px;"><span class='emphasis'>* 낙찰후 7일 이내에 배송하지 않으시면 영구회원탈퇴 합니다.</span></div>
-        <div class='write_size' style="line-height:20px;"><span class='emphasis'>* 일반 소비자가격 약 1만원 이상의 상품만 등록이 가능합니다.</span></div>
+        <!--<div class='write_size' style="line-height:20px;"><span class='emphasis'>주의사항) 상품등록시 아래 사항을 지켜주십시오.</span></div>
+        <div class='write_size' style="line-height:20px;"><span class='emphasis'>* 배송이 되는 실물상품만 등록이 가능합니다. 예) 박스포장 없는 소프트웨어 불가</span></div>-->
+        <!--<div class='write_size' style="line-height:20px;"><span class='emphasis'>* 낙찰후 7일 이내에 배송하지 않으시면 영구회원탈퇴 합니다.</span></div>
+        <div class='write_size' style="line-height:20px;"><span class='emphasis'>* 일반 소비자가격 약 1만원 이상의 상품만 등록이 가능합니다.</span></div>-->
         <input class="frm_input required" maxlength="100" style="width:100%;" name="subj2" id="subj2" itemname="상품명" required value='<?=$subj2?>'>
-        <div class=write_size style="line-height:25px;">상품명을 입력하세요. 예) 아이패드 32G</div>
+        <!--<div class=write_size style="line-height:25px;">상품명을 입력하세요. 예) 아이패드 32G</div>-->
     </td>
 </tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
@@ -164,17 +169,19 @@ var char_max = parseInt(<?=$write_max?>); // 최대
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
 -->
 <tr>
-    <td class=write_head>· 모집 마감</td>
+    <td class=write_head>· 모집 기간</td>
     <td class=write_main>
-        <input type=text size=20 name=wr_1 id=wr_1 value="<?=$write[wr_1]?>" itemname="경매 시작일시" required readonly>
-        <div class='write_size' style="line-height:20px;"><span class='emphasis'>관리자의 승인이 있어야 등록되며, 오늘부터 최대 2일 이내에 경매가 진행됩니다.</span></div>
+        <!--<input type=text size=20 name=wr_1 id=wr_1 value="<?=$write[wr_1]?>" itemname="경매 시작일시" required readonly>-->
+        <!--<div class='write_size' style="line-height:20px;"><span class='emphasis'>관리자의 승인이 있어야 등록되며, 오늘부터 최대 2일 이내에 경매가 진행됩니다.</span></div>-->
         <? if ($is_admin) { ?>
-        <input type="text" name="wr_1" value="<?php echo $write["wr_1"]; ?>" id="date_wr_1" required class="frm_input" size="11" readonly="readonly">
+        
+        <input type="text" name="wr_1" value="<?=$write[wr_1]?>" id="date_wr_1" required class="frm_input" size="11" readonly="readonly">
         ~
-        <input type="text" name="wr_2" value="<?php echo $write["wr_2"]; ?>" id="date_wr_2" required class="frm_input" size="11" readonly="readonly">
+        <input type="text" name="wr_2" value="<?=$write[wr_2]?>" id="date_wr_2" required class="frm_input" size="11" readonly="readonly" >
 
         <br>
         
+        <!--
         <input type=button value="오늘자정" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+60*60*24)?>';">
         <input type=button value="지금" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d H:i:s", G5_SERVER_TIME)?>';">
         <input type=button value="+1일뒤" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+86400*1)?>';">
@@ -183,7 +190,7 @@ var char_max = parseInt(<?=$write_max?>); // 최대
         <input type=button value="+5일뒤" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+86400*5)?>';">
         <input type=button value="+7일뒤" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+86400*7)?>';">
         <input type=button value="+10일뒤" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+86400*10)?>';">
-        
+        -->
         <? } ?>
 
     </td>
@@ -192,12 +199,12 @@ var char_max = parseInt(<?=$write_max?>); // 최대
 <tr>
     <td class=write_head>· 여행 일정</td>
     <td class=write_main>
-        <input type=text size=20 name=wr_2 id=wr_2 value="<?=$write[wr_2]?>" itemname="경매 종료일시" required readonly>
+        <!--<input type=text size=20 name=wr_2 id=wr_2 value="<?=$write[wr_2]?>" itemname="경매 종료일시" required readonly>-->
         <br>
         <? if ($is_admin) { ?>
-        <input type="text" name="wr_9" value="<?php echo $write["wr_9"]; ?>" id="date_wr_1" required class="frm_input" size="11" readonly="readonly">
+        <input type="text" name="wr_9"  value="<?=$write[wr_9]?>" id="date_wr_9" required class="frm_input" size="11" readonly="readonly">
         ~
-        <input type="text" name="wr_10" value="<?php echo $write["wr_10"]; ?>" id="date_wr_2" required class="frm_input" size="11" readonly="readonly">
+        <input type="text" name="wr_10" value="<?=$write[wr_10]?>"  id="date_wr_10" required class="frm_input" size="11" readonly="readonly">
         <!--<input type=button value="지금" onclick="end_date(0)">
         <input type=button value="1일" onclick="end_date(1)">
         <input type=button value="3일" onclick="end_date(3)">
@@ -497,29 +504,41 @@ function add_current_time() {
     wr_1.value = wr_1.value.substring(0,10) + ' ' + hour + ':59:59';
 }
 
-function end_2399() {
+function end_2398() {
     var wr_2 = document.getElementById("wr_2");
-    wr_2.value = wr_2.value.substring(0,10) + ' ' + hour + ':59:59';
+    wr_2.value = wr_2.value.substring(0,10) + ' ' + '23:59:59';
 }
 
+function end_2399() {
+    var wr_10 = document.getElementById("wr_10");
+    wr_10.value = wr_10.value.substring(0,10) + ' '  + '23:59:59';
+}
+
+$(function(){
+    $("#date_wr_9").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+0d;", maxDate: "+365d;" });
+});
+
+
+$(function(){
+    $("#date_wr_10").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+0d;", maxDate: "+365d;" });
+
+});
 
 $(function(){
     $("#date_wr_1").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+0d;", maxDate: "+365d;" });
 });
 
 $(function(){
-    $("#date_wr_2").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+3d;", maxDate: "+365d;" });
-    end_2399();
+    $("#date_wr_2").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+0d;", maxDate: "+365d;" });
+    //end_2398();
 });
 
-$(function(){
-    $("#date_wr_9").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+0d;", maxDate: "+365d;" });
-});
 
-$(function(){
-    $("#date_wr_10").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+3d;", maxDate: "+365d;" });
-    end_2399();
-});
 
 </script>
+
+ 
+ 
+ 
+
 

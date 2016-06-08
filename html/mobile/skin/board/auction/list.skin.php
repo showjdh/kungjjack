@@ -84,7 +84,7 @@ for ($i=0; $i<count($list); $i++) {
             $class = "act_status_end";
             break;
         case 3: // 유찰
-            $status = "유찰되었습니다.";
+            $status = "모집종료.";
             $class = "act_status_no";
             break;
     }
@@ -116,7 +116,7 @@ if($thumb['src']) {
             <ul class="tender_info_ul">
                 <li><a href="<?=$list[$i][href]?>" style="text-decoration:none;"><span style="cursor:pointer;">장소 : <?=cut_str($info[company],15)?><? if ($list[$i][comment_cnt]) echo " <span style='font-family:Tahoma;font-size:10px;color:#EE5A00; font-weight:normal;'>{$list[$i][comment_cnt]}</span>"; ?></span></a></li>
                <!--<li>입찰 번호 : <?=number_format($info[tender_lower])?>~<?=number_format($info[tender_higher])?></li>-->
-                <li>여행날짜 : <?=date("Y/m/d [H:i]",strtotime($info[travel_start_time]))?>~<?=date("Y/m/d [H:i]",strtotime($info[travel_end_time]))?></li>
+                <li>여행날짜 : <?=date("Y/m/d",strtotime($info[travel_start_time]))?>~<?=date("Y/m/d",strtotime($info[travel_end_time]))?></li>
                 <li>모집기간 : <?=date("Y/m/d [H:i]",strtotime($info[start_datetime]))?>~<?=date("Y/m/d [H:i]",strtotime($info[end_datetime]))?></li>
                 
                 <li>모집상태 : <span class="<?=$class?>"><?=$status?></span></li>

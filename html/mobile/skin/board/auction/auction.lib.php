@@ -27,7 +27,7 @@ if (!$board[bo_1]) {
     sql_query($sql, false);
 
     $sql = " update $g5[board_table] set ";
-    $sql.= "  bo_1 = '500' ";
+    $sql.= "  bo_1 = '0' ";
     $sql.= " ,bo_2 = '1' ";
     $sql.= " ,bo_3 = '10000' ";
     $sql.= " ,bo_4 = '3' ";
@@ -58,10 +58,10 @@ sql_query($sql, false);
 // 경매 상태 출력
 function auction_status($status) {
     switch ($status) {
-        case "0": $status = "경매전"; break;
-        case "1": $status = "진행중"; break;
-        case "2": $status = "낙찰"; break;
-        case "3": $status = "유찰"; break;
+        case "0": $status = "모집전"; break;
+        case "1": $status = "모집중"; break;
+        case "2": $status = "모집마감"; break;
+        case "3": $status = "모집마감"; break;
     }
     return $status;
 }
