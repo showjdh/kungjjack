@@ -237,7 +237,7 @@ if (file_exists($file_path)) {
                 <div style="position:absolute; margin:20px 0 0 270px; color:#888888; font-weight:bold;"><?php echo number_format($info[td_id])?> 포인트</div>
             <?php } ?>
             <?php if ($info[tender_count]) { ?>
-                <div style="position:absolute; cursor:pointer; margin:8px 0 0 465px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_list.gif" onclick="tender_list()"></div>
+                <div style="position:absolute; cursor:pointer; margin:8px 0 0 465px;"><img src="<?php echo $board_skin_url?>/img/btn_people.gif" onclick="tender_list()"></div>
                 <?php if ($view[link][2]) { ?><div style="position:absolute; cursor:pointer; margin:8px 0 0 565px;"><a href="<?php echo $view[link_href][2]?>" target=_blank><img src="<?php echo $board_skin_url?>/img/btn_buy.gif"></a></div><?php } ?>
             <?php } ?>
         </div>
@@ -246,7 +246,7 @@ if (file_exists($file_path)) {
 
         <div style="">
             <div style="float:left;"><img src="<?php echo $board_skin_url?>/img/tender_lost.gif"></div>
-            <div style="float:left; cursor:pointer; margin-top:8px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_list.gif" onclick="tender_list()"></div>
+            <div style="float:left; cursor:pointer; margin-top:8px;"><img src="<?php echo $board_skin_url?>/img/btn_people.gif" onclick="tender_list()"></div>
         </div>
 
     <?php } else { ?>
@@ -254,14 +254,15 @@ if (file_exists($file_path)) {
         <form name="auction_tender" id="auction_tender" method="post" action="<?php echo $board_skin_url?>/tender.php" style="margin:18px 0 0 0; float:left;">
             <input type="hidden" name="bo_table" value="<?php echo $bo_table?>">
             <input type="hidden" name="wr_id" value="<?php echo $wr_id?>">
-            <input type="text" name="point" id="point" value="" required numeric itemname="입찰 번호" style=" border:1px solid #D3D3D3; width:80px; text-align:right; padding-right:10px;">
-            번호를 입찰하겠습니다.
+            <input type="hidden" name="point" id="point" value="<?php echo wr_id?>"  itemname="입찰 번호" style=" border:1px solid #D3D3D3; width:80px; text-align:right; padding-right:10px;">
+            
         </form>
-        <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender.gif" onclick="tender_send()"></div>
+        <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_participate.gif" onclick="tender_send()"></div>
         <!--
-        <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_section.gif" id="btn_tender_section"></div>
-        <?php if ($info[tender_count]) { ?><div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_list.gif" onclick="tender_list()"></div><?php } ?>
-        <?php if ($view[link][2]) { ?><div style="float:left; margin:8px 0 0 10px;"><a href="<?php echo $view[link_href][2]?>" target=_blank><img src="<?php echo $board_skin_url?>/img/btn_buy.gif"></a></div><?php } ?>-->
+        <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_tender_section.gif" id="btn_tender_section"></div>-->
+
+        <?php if ($info[tender_count]) { ?><div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_people.gif" onclick="tender_list()"></div><?php } ?>
+        <!--<?php if ($view[link][2]) { ?><div style="float:left; margin:8px 0 0 10px;"><a href="<?php echo $view[link_href][2]?>" target=_blank><img src="<?php echo $board_skin_url?>/img/btn_buy.gif"></a></div><?php } ?>-->
 
 
 <link rel="stylesheet" href="<?php echo $board_skin_url?>/jquery-ui.css" type="text/css" media="all" />
@@ -387,9 +388,9 @@ $row2 = sql_fetch(" select count(mb_id) as cnt from $tender_table where td_datet
 $tender_count = $row2[cnt];
 
 ?>
-    <div style="margin-top:5px; padding:10px; color:#888; border:1px solid #ddd;">
+    <!--<div style="margin-top:5px; padding:10px; color:#888; border:1px solid #ddd;">
     <b><?php echo $member[mb_nick]?></b>님께서는 <b><?php echo number_format($member[mb_point])?> 포인트</b>를 가지고 계십니다. (현재 <?php echo $tender_count?>번 입찰)
-    </div>
+    </div>-->
 <?php } ?>
 
 <?php if ($is_admin && $super[point] && $info[status] == '1') { ?>
@@ -440,12 +441,12 @@ function file_download(link, file) {
 function tender_send() {
     var p = document.getElementById("point").value;
 
-    if (!p) {
-        alert("포인트를 입력해주세요.");
-        return;
-    }
+    //if (!p) {
+    //    alert("포인트를 입력해주세요.");
+    //    return;
+    //}
 
-    if (confirm("정말 입찰하시겠습니까?")) {
+    if (confirm("정말 신청하시겠습니까?")) {
         document.auction_tender.submit();
     }
 }

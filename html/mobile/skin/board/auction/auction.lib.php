@@ -142,27 +142,29 @@ function tender_common_check($wr_id) {
     $auction = get_info_auction($wr_id);
 
     if (G5_TIME_YMDHIS < $auction[start_datetime])
-        alert_only("경매 시작 전입니다.", "{$url}");
+        alert_only("모집 시작 전입니다.", "{$url}");
 
     if (G5_TIME_YMDHIS > $auction[end_datetime]) 
-        alert_only("경매가 종료되었습니다.", "{$url}");
+        alert_only("모집이 종료되었습니다.", "{$url}");
 
     return $auction;
 }
 
 // 경매 건별 입찰 진행
-function tender_send($wr_id, $point) {
+function tender_send($wr_id) {
     global $g5, $board, $member, $tender_table, $write_table, $write, $bo_table;
     
     $url = G5_BBS_URL."/board.php?bo_table=".$bo_table."&wr_id=".$wr_id;
 
     $auction = tender_common_check($wr_id);
 
-    $row2 = sql_fetch(" select count(mb_id) as cnt from $tender_table where td_datetime like '".G5_TIME_YMD."%' and mb_id = '$member[mb_id]' and wr_id = '$wr_id' ");
+    //$row2 = sql_fetch(" select count(mb_id) as cnt from $tender_table where td_datetime like '".G5_TIME_YMD."%' and mb_id = '$member[mb_id]' and wr_id = '$wr_id' ");
+    $row2 = sql_fetch(" select count(mb_id) as cnt from $tender_table where mb_id = '$member[mb_id]' and wr_id = '$wr_id' ");
     $tender_count = $row2[cnt];
 
-    if ($tender_count >= $auction[day_limit])
-        alert_only("하루에 {$auction[day_limit]} 번만 참여 가능합니다.", "{$url}");
+    //if ($tender_count >= $auction[day_limit])
+    if ($tender_count >= 1)
+        alert_only("여러개의 파티에 동시에 신청할 수 없습니다.", "{$url}");
 
     if ($point < $auction[tender_lower] || $point > $auction[tender_higher])
         alert_only("입찰 번호는 ".number_format($auction[tender_lower])."~".number_format($auction[tender_higher])." 사이로 설정해주세요.", "{$url}");
@@ -177,6 +179,7 @@ function tender_send($wr_id, $point) {
         alert_only("이미 같은 번호로 입찰 하셨습니다.", "{$url}");
 
     tender_common_update($wr_id, $point, $auction);
+    alert_only("신청 되었습니다.", "{$url}");
 }
 
 // 경매 구간별 입찰 진행

@@ -11,7 +11,7 @@ if (!$write)
     alert_only("bo_table 과 wr_id 를 확인하십시오.");
 
 if (!$point)
-    alert_only("point 를 입력해주세요.");
+    alert_only("카카오 ID 를 입력해주세요.");
 
 tender_send($wr_id, $point);
 
