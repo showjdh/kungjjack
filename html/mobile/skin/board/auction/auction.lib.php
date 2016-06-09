@@ -179,6 +179,7 @@ function tender_send($wr_id) {
         alert_only("이미 같은 번호로 입찰 하셨습니다.", "{$url}");
 
     tender_common_update($wr_id, $point, $auction);
+    alert_only("신청 되었습니다.", "{$url}");
 }
 
 // 경매 구간별 입찰 진행

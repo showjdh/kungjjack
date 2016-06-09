@@ -254,8 +254,13 @@ if (file_exists($file_path)) {
         <form name="auction_tender" id="auction_tender" method="post" action="<?php echo $board_skin_url?>/tender.php" style="margin:18px 0 0 0; float:left;">
             <input type="hidden" name="bo_table" value="<?php echo $bo_table?>">
             <input type="hidden" name="wr_id" value="<?php echo $wr_id?>">
+<<<<<<< HEAD
+            <input type="hidden" name="point" id="point" value="<?php echo wr_id?>"  itemname="입찰 번호" style=" border:1px solid #D3D3D3; width:80px; text-align:right; padding-right:10px;">
+            
+=======
             <!--<input type="text" name="point" id="point" value="" required numeric itemname="입찰 번호" style=" border:1px solid #D3D3D3; width:80px; text-align:right; padding-right:10px;">
             번호를 입찰하겠습니다.-->
+>>>>>>> ff86520343171bda086111a6481e7710af66ccf8
         </form>
         <div style="float:left; cursor:pointer; margin:8px 0 0 10px;"><img src="<?php echo $board_skin_url?>/img/btn_participate.gif" onclick="tender_send()"></div>
         <!--

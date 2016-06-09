@@ -13,6 +13,10 @@ $write[wr_3] = $board[bo_1]; // 참여 포인트 기본값
     $write[wr_4] = $board[bo_2]; // 입찰 최소 포인트 기본값
     $write[wr_5] = $board[bo_3]; // 입찰 최대 포인트 기본값
     $write[wr_6] = $board[bo_4]; // 하루 참여 횟수 기본값
+<<<<<<< HEAD
+    
+=======
+>>>>>>> ff86520343171bda086111a6481e7710af66ccf8
 if ($w == '') {
     $write[wr_1] = date("Y-m-d", G5_SERVER_TIME);
     //$write[wr_2] = date("Y-m-d H:i:s", $write[wr_1] + 86400 * 7);
@@ -177,7 +181,7 @@ var char_max = parseInt(<?=$write_max?>); // 최대
     <td class=write_main>
         <!--<input type=text size=20 name=wr_1 id=wr_1 value="<?=$write[wr_1]?>" itemname="경매 시작일시" required readonly>-->
         <!--<div class='write_size' style="line-height:20px;"><span class='emphasis'>관리자의 승인이 있어야 등록되며, 오늘부터 최대 2일 이내에 경매가 진행됩니다.</span></div>-->
-        <? if ($is_admin) { ?>
+        <? //if ($is_admin) { ?>
         
         <input type="text" name="wr_1" value="<?=$write[wr_1]?>" id="date_wr_1" required class="frm_input" size="11" readonly="readonly">
         ~
@@ -195,7 +199,7 @@ var char_max = parseInt(<?=$write_max?>); // 최대
         <input type=button value="+7일뒤" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+86400*7)?>';">
         <input type=button value="+10일뒤" onclick="document.getElementById('wr_1').value='<?=date("Y-m-d 00:00:00", G5_SERVER_TIME+86400*10)?>';">
         -->
-        <? } ?>
+        <? //} ?>
 
     </td>
 </tr>
@@ -205,7 +209,11 @@ var char_max = parseInt(<?=$write_max?>); // 최대
     <td class=write_main>
         <!--<input type=text size=20 name=wr_2 id=wr_2 value="<?=$write[wr_2]?>" itemname="경매 종료일시" required readonly>-->
         <br>
+<<<<<<< HEAD
+        <? //if ($is_admin) { ?>
+=======
         <? if ($is_admin) { ?>
+>>>>>>> ff86520343171bda086111a6481e7710af66ccf8
 
         <input type="text" name="wr_9" value="<?php echo $write["wr_9"]; ?>" id="date_wr_9" required class="frm_input" size="11" readonly="readonly">
         ~
@@ -223,7 +231,7 @@ var char_max = parseInt(<?=$write_max?>); // 최대
         <!-- <input type=button value="14일" onclick="end_date(14)">
         <input type=button value="21일" onclick="end_date(21)">
         <input type=button value="30일" onclick="end_date(30)"> -->
-        <? } ?>
+        <? //} ?>
         <br />
         <!--<input type=button value="10시" onclick="end_hour(10)">
         <input type=button value="12시" onclick="end_hour(12)">

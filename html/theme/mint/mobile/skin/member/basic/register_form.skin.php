@@ -28,7 +28,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
     <div class="tbl_frm01 tbl_wrap">
         <table>
+<<<<<<< HEAD
         <caption>사용자 정보 입력</caption>
+=======
+<<<<<<< HEAD
+        <caption>쿵짝</caption>
+=======
+        <caption>쿵짝1</caption>
+>>>>>>> ff86520343171bda086111a6481e7710af66ccf8
+>>>>>>> 9b4b01e0fa90081c45a24aac92e1d30210c52f4c
         <tr>
             <th scope="row"><label for="reg_mb_id">아이디<strong class="sound_only">필수</strong></label></th>
             <td>
