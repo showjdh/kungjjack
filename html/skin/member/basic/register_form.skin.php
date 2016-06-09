@@ -48,7 +48,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </tr>
         <tr>
             <th scope="row"><label for="reg_mb_SKKU_ID">학번<strong class="sound_only">필수</strong></label></th>
-            <td><input type="text" name="mb1" id="reg_mb_SKKU_ID" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td>
+            <td>학번 : <input type="text" name="SKKU_ID" id="reg_mb_SKKU_ID" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td> 
         </tr>
         </tbody>
         </table>
