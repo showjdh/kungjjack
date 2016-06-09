@@ -51,7 +51,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </tr>
         <tr> 
             <th scope="row"><label for="reg_mb_SKKU_PWD">비밀번호(학번)<strong class="sound_only">필수</strong></label></th> 
-            <td><input type="password" name="SKKU_PWD" id="reg_mb_SKKU_PWD" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td> 
+            <td><input type="text" name="SKKU_PWD" id="reg_mb_SKKU_PWD" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td> 
         </tr>
         </table>
     </div>
@@ -271,7 +271,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </form>
 
     <script>
-    var authFinished = false;
     $(function() {
         $("#reg_zip_find").css("display", "inline-block");
 
@@ -363,27 +362,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     		type: 'POST',
     		data: {address: 'http://sugang.skku.edu/skku/login?attribute=loginChk&lang=KO&id='+id+'&pwd='+pwd},
     		success: function(data) {
-    			var str = data.slice(11, 14);
-    			console.log(str);
-    			if (str == "200") {
-    				alert('성균관대학교 학생입니다.');
-    				authFinished = true;
-    			}
-    			else {
-    				alert('성균관대학교 학생이 아닙니다.');	
-    				authFinished = false;
-    			}
+    			console.log(data);
     		}
     	});
     }
     // submit 최종 폼체크
     function fregisterform_submit(f)
     {
-        if (!authFinished) {
-        	alert('성균관대학교 학생 인증을 해주십시오.');
-        	return false;
-        }
-
         // 회원아이디 검사
         if (f.w.value == "") {
             var msg = reg_mb_id_check();

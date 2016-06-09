@@ -32,6 +32,8 @@ if(!$mb_id)
 
 $mb_password    = trim($_POST['mb_password']);
 $mb_password_re = trim($_POST['mb_password_re']);
+$SKKU_ID        = trim($_POST['SKKU_ID']);
+$SKKU_PWD       = trim($_POST['SKKU_PWD']);
 $mb_name        = trim($_POST['mb_name']);
 $mb_nick        = trim($_POST['mb_nick']);
 $mb_email       = trim($_POST['mb_email']);
@@ -201,6 +203,8 @@ if ($w == '') {
     $sql = " insert into {$g5['member_table']}
                 set mb_id = '{$mb_id}',
                      mb_password = '".get_encrypt_string($mb_password)."',
+                     SKKU_ID = '{$SKKU_ID}',
+                     SKKU_PWD = '".get_encrypt_string($SKKU_PWD)."',
                      mb_name = '{$mb_name}',
                      mb_nick = '{$mb_nick}',
                      mb_nick_date = '".G5_TIME_YMD."',
