@@ -46,6 +46,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <th scope="row"><label for="reg_mb_password_re">비밀번호 확인<strong class="sound_only">필수</strong></label></th>
             <td><input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td>
         </tr>
+        <tr>
+            <th scope="row"><label for="reg_mb_SKKU_ID">학번<strong class="sound_only">필수</strong></label></th>
+            <td><input type="text" name="SKKU_ID" id="reg_mb_SKKU_ID" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td>
+        </tr>
         </tbody>
         </table>
     </div>
