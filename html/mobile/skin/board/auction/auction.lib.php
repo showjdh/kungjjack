@@ -142,10 +142,10 @@ function tender_common_check($wr_id) {
     $auction = get_info_auction($wr_id);
 
     if (G5_TIME_YMDHIS < $auction[start_datetime])
-        alert_only("경매 시작 전입니다.", "{$url}");
+        alert_only("모집 시작 전입니다.", "{$url}");
 
     if (G5_TIME_YMDHIS > $auction[end_datetime]) 
-        alert_only("경매가 종료되었습니다.", "{$url}");
+        alert_only("모집이 종료되었습니다.", "{$url}");
 
     return $auction;
 }

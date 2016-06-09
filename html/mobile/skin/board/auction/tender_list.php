@@ -44,8 +44,8 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 ?>
 <div style="height:50px; clear:both;">
     <div style="float:left; margin:20px 20px 0 10px;">
-        <b style="color:#0000A0;">입찰내역</b>
-        <span style="color:#888;">(<?=$order_info?>)</span>
+        <b style="color:#0000A0;">신청자</b>
+        <!--<span style="color:#888;">(<?=$order_info?>)</span>-->
     </div>
 
     <div style="float:right; margin:20px 10px 10px 0;">
@@ -64,12 +64,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
     <tr>
         <th style="width:50px; height:30px;"> 번호 </th>
         <th style="width:100px;"> 회원 </th>
-        <th> 입찰일시 </th>
-        <th style="width:100px;"> 입찰금액 </th>
+        <th> 신청일시 </th>
+        <!--<th style="width:100px;"> 입찰금액 </th>-->
     </tr>
 <?php
 if (!$total) {
-    echo "<tr><td colspan=4> 입찰내역이 없습니다. </td></tr>";
+    echo "<tr><td colspan=4> 신청자가 없습니다. </td></tr>";
 }
 
 $qry = sql_query(" select * from $tender_table where wr_id = '$wr_id' order by $orderby limit $from_record, $rows");
@@ -106,7 +106,7 @@ while ($row = sql_fetch_array($qry)) {
         ?> 
         </td>
         <td> <?=$date?> </td>
-        <td class="align_right"> <?=$tender_point?> 포인트 &nbsp; </td>
+        <!--<td class="align_right"> <?=$tender_point?> 포인트 &nbsp; </td>-->
     </tr>
 <?php } ?>
 

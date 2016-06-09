@@ -1,1 +1,0 @@
-<? goto_url("./board.php?bo_table=estatus" . $qstr); ?>
