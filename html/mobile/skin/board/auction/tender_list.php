@@ -65,7 +65,11 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
         <th style="width:50px; height:30px;"> 번호 </th>
         <th style="width:100px;"> 회원 </th>
         <th> 신청일시 </th>
+<<<<<<< HEAD
         <th style="width:100px;"> kakao ID </th>
+=======
+        <!--<th style="width:100px;"> 입찰금액 </th>-->
+>>>>>>> ff86520343171bda086111a6481e7710af66ccf8
     </tr>
 <?php
 if (!$total) {
@@ -107,7 +111,11 @@ while ($row = sql_fetch_array($qry)) {
         ?> 
         </td>
         <td> <?=$date?> </td>
+<<<<<<< HEAD
         <td class="align_right"> <?=$row[mb_nick]?>  &nbsp; </td>
+=======
+        <!--<td class="align_right"> <?=$tender_point?> 포인트 &nbsp; </td>-->
+>>>>>>> ff86520343171bda086111a6481e7710af66ccf8
     </tr>
 <?php } ?>
 

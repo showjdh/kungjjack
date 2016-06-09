@@ -46,7 +46,7 @@ if ($w == "") {
         $member['mb_name']  = $_POST['mb_name'];
     }
 
-    $g5['title'] = '회원 가입';
+    $g5['title'] = '회원 가';
 
 } else if ($w == 'u') {
 

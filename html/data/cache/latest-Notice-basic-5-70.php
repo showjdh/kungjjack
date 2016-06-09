@@ -19,7 +19,7 @@ $list=array (
     'wr_link2' => '',
     'wr_link1_hit' => '0',
     'wr_link2_hit' => '0',
-    'wr_hit' => '4',
+    'wr_hit' => '9',
     'wr_good' => '0',
     'wr_nogood' => '0',
     'mb_id' => 'admin',
@@ -57,7 +57,7 @@ $list=array (
     'ca_name_href' => 'http://sogong.dothome.co.kr/bbs/board.php?bo_table=Notice&amp;sca=',
     'href' => 'http://sogong.dothome.co.kr/bbs/board.php?bo_table=Notice&amp;wr_id=1',
     'comment_href' => 'http://sogong.dothome.co.kr/bbs/board.php?bo_table=Notice&amp;wr_id=1',
-    'icon_new' => '<img src="http://sogong.dothome.co.kr/theme/mint/mobile/skin/latest/basic/img/icon_new.gif" alt="새글">',
+    'icon_new' => '',
     'icon_hot' => '',
     'icon_secret' => '',
     'link' => 
