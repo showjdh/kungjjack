@@ -438,14 +438,14 @@ function file_download(link, file) {
 }
 
 function tender_send() {
-    var p = document.getElementById("point").value;
+    //var p = document.getElementById("point").value;
 
-    if (!p) {
-        alert("포인트를 입력해주세요.");
-        return;
-    }
+    //if (!p) {
+    //    alert("포인트를 입력해주세요.");
+    //    return;
+    //}
 
-    if (confirm("정말 입찰하시겠습니까?")) {
+    if (confirm("정말 신청하시겠습니까?")) {
         document.auction_tender.submit();
     }
 }
